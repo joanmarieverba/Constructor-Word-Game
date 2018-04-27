@@ -30,11 +30,14 @@ class Word {
 
     //takes a character as an argument and calls the check function on each letter object
     processCharacter(char){
-        for (let i = 0; i < this.wordObjectArray.length; i++) {      
-            return this.wordObjectArray[i].charCheck(char);
+        let guessRight = false;
+        for (let i = 0; i < this.wordObjectArray.length; i++) {  
+            this.wordObjectArray[i].charCheck(char);
             // console.log("check ", this.wordObjectArray[i].charCheck(char));
-            // console.log("wordObjectArray ", this.wordObjectArray[i]);
+            // console.log("wordObjectArray ", this.wordObjectArray[i]); 
+            if (this.wordObjectArray[i].charCheck(char)) {guessRight = true;};
         };
+        return guessRight;
     };
 
 };
@@ -42,9 +45,9 @@ class Word {
 module.exports = Word;
 
 let output = new Word("name");
-output.processCharacter("z");
+// output.processCharacter("z");
 
-console.log(output.processCharacter("z"));
+// console.log(output.processCharacter("z"));
 
 // this.firstLetter = new Letter(this.wordArray[0], true);
 // console.log("firstletter ", this.firstLetter);

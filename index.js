@@ -32,6 +32,11 @@ let askQuestion = function () {
           count++;
           let newWord = new Word(thisWord);
           newWord.outputString(answers.letter);
+          if (newWord.processCharacter(answers.letter)) {
+            console.log("Correct!");
+          } else {
+            console.log("Incorrect!");
+          };
 
 
      });
