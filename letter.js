@@ -17,14 +17,19 @@ class Letter {
     charCheck(guessedChar) {
         if (guessedChar === this.correctLetter){
             this.guessTorF = true;
-        };
+        } else {
+            this.guessTorF = false;
+        };  
+        // console.log("this.guessTorF ", this.guessTorF);
+        return this.guessTorF;
     };
 };
 
-// const nextLetter = new Letter("a", true);
+const nextLetter = new Letter("a", true);
 // nextLetter.printToScreen("c");
 // nextLetter.printToScreen("a");
-// nextLetter.charCheck();
+nextLetter.charCheck("z");
+nextLetter.charCheck("a");
 
 module.exports = Letter;
 
