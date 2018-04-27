@@ -26,8 +26,5 @@ nextLetter.printToScreen("c");
 nextLetter.printToScreen("a");
 nextLetter.charCheck();
 
-// var chars = "overpopulation".split('');
-// console.log ("chars ", chars);
-
 module.exports = Letter;
 

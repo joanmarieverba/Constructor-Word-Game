@@ -5,7 +5,7 @@
 // inquirer npm package
 const inquirer = require("inquirer");
 
-//const Word = require("./word.js");
+const Word = require("./word.js");
 
 let maxGuesses = 12;
 
@@ -14,7 +14,7 @@ const wordList = ["Minnesota", "Wisconsin", "Nevada", "Montana", "California", "
 function getRandomInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-// grab a word from the list
+// grab a word from the list at random
 index = getRandomInclusive(0, wordList.length-1);
 let thisWord = wordList[index];
 console.log(thisWord);
@@ -32,11 +32,11 @@ let askQuestion = function () {
       }
     ]).then(function (answers) {
             var newWord = new Word(
-              thisWord,
-              answers.letter
+              thisWord
             );
 
-            newWord.printToScreen();
+      //      newWord.printToScreen();
+      newWord.outputString(answers.letter);
 
 
      });

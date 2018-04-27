@@ -3,28 +3,30 @@ const Letter = require("./letter.js");
 
 // When we use the 'extends' keyword in our class declation, this class inherits 
 // the methods and properties from the class it extends 
-class Word extends Letter {
+class Word {
 
-    constructor(word, correctLetter, guessedLetter) {
-        // This super() allows us to access the class we are extending
-        super();
-        this.correctLetter = correctLetter;
-        this.guessTorF = false;
+    constructor(word) {
 
         // New properties
         this.wordArray = word.split('');
-        this.guessedLetter = guessedLetter;
+        console.log(this.wordArray);
+        this.firstLetter = new Letter(this.wordArray[0], true);
+       console.log("firstletter ", this.firstLetter);
+        this.firstLetter.printToScreen("z");
+
     };
 
     // New method  
-    outputString() {
+    outputString(guessedLetter) {
+
         let outputArray = this.wordArray.map(function(elem){
-            this.printToScreen(elem);
+            
+            elem.printToScreen(guessedLetter);
         });
        console.log("outputArray ", outputArray);
     };
 
 };
 
-let output = new Word("name", "a", "b");
+let output = new Word("name");
 output.outputString();
