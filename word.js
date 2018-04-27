@@ -8,14 +8,14 @@ class Word {
         
         // properties
         this.wordArray = word.split('');
-        console.log("wordArray ", this.wordArray);
+        // console.log("wordArray ", this.wordArray);
         this.wordObjectArray = [];
         for (let i=0; i < word.length; i++){
             this.currentLetter = new Letter(this.wordArray[i], true);
-            console.log ("this current Letter ", this.currentLetter);
+        //    console.log ("this current Letter ", this.currentLetter);
             this.wordObjectArray.push(new Letter(this.wordArray[i], true));
         };
-        console.log("wordObjectArray ", this.wordObjectArray);
+       // console.log("wordObjectArray ", this.wordObjectArray);
     };
 
     // returns a string representing the word
@@ -24,7 +24,8 @@ class Word {
         for(let i = 0; i < this.wordObjectArray.length; i++) {
             stringOnScreen = stringOnScreen + this.wordObjectArray[i].printToScreen(guessedLetter) + " ";
         };
-       console.log("stringOnScreen ", stringOnScreen);
+        //console.log("stringOnScreen ", stringOnScreen);
+        console.log(stringOnScreen);
     };
 
     //takes a character as an argument and calls the check function on each letter object
@@ -36,9 +37,11 @@ class Word {
 
 };
 
-let output = new Word("name");
-output.outputString("z");
-output.outputString("a");
+module.exports = Word;
+
+// let output = new Word("name");
+// output.outputString("z");
+// output.outputString("a");
 
 // this.firstLetter = new Letter(this.wordArray[0], true);
 // console.log("firstletter ", this.firstLetter);

@@ -19,8 +19,6 @@ index = getRandomInclusive(0, wordList.length-1);
 let thisWord = wordList[index];
 console.log(thisWord);
 
-
-
 // variable we will use to count the number of guesses
 let count = 0;
 
@@ -31,15 +29,16 @@ let askQuestion = function () {
         message: "Guess a letter!!!"
       }
     ]).then(function (answers) {
-            var newWord = new Word(
-              thisWord
-            );
-
-      //      newWord.printToScreen();
-      newWord.outputString(answers.letter);
+          count++;
+          let newWord = new Word(thisWord);
+          newWord.outputString(answers.letter);
 
 
      });
 };
 
 askQuestion();
+
+// let output = new Word("name");
+// output.outputString("z");
+// output.outputString("a");

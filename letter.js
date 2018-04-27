@@ -11,7 +11,7 @@ class Letter {
         if (guessedChar !== this.correctLetter) {
             guessedChar = "_";
         };
-        console.log(guessedChar);
+        // console.log(guessedChar);
         return guessedChar;
     };
     charCheck(guessedChar) {
@@ -21,10 +21,10 @@ class Letter {
     };
 };
 
-const nextLetter = new Letter("a", true);
-nextLetter.printToScreen("c");
-nextLetter.printToScreen("a");
-nextLetter.charCheck();
+// const nextLetter = new Letter("a", true);
+// nextLetter.printToScreen("c");
+// nextLetter.printToScreen("a");
+// nextLetter.charCheck();
 
 module.exports = Letter;
 
