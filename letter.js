@@ -8,26 +8,37 @@ class Letter {
     };
     // 
     printToScreen(guessedChar) {
-        if (guessedChar !== this.correctLetter) {
-            guessedChar = "_";
+        let outputChar;
+        if (guessedChar === this.correctLetter) {
+            outputChar = this.correctLetter;
         };
-        // console.log(guessedChar);
-        return guessedChar;
+        if (this.guessTorF) {
+            outputChar = this.correctLetter;
+        };
+        if (guessedChar !== this.correctLetter && this.guessTorF === false) {
+            outputChar = "_";
+        };
+        console.log("outputChar ", outputChar);
+        return outputChar;
     };
     charCheck(guessedChar) {
-        if (guessedChar === this.correctLetter){
-            this.guessTorF = true;
-        } else {
-            this.guessTorF = false;
-        };  
-        // console.log("this.guessTorF ", this.guessTorF);
+            if (this.guessTorF) {
+                return this.guessTorF;
+            };
+            if (guessedChar === this.correctLetter){
+                this.guessTorF = true;
+            } else {
+                this.guessTorF = false;
+            };  
+
+        console.log("this.guessTorF ", this.guessTorF);
         return this.guessTorF;
     };
 };
 
-const nextLetter = new Letter("a", true);
-// nextLetter.printToScreen("c");
-// nextLetter.printToScreen("a");
+const nextLetter = new Letter("a", false);
+nextLetter.printToScreen("c");
+nextLetter.printToScreen("a");
 nextLetter.charCheck("z");
 nextLetter.charCheck("a");
 
