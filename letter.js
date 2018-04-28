@@ -18,29 +18,30 @@ class Letter {
         if (guessedChar !== this.correctLetter && this.guessTorF === false) {
             outputChar = "_";
         };
-        console.log("outputChar ", outputChar);
+       // console.log("outputChar ", outputChar);
         return outputChar;
     };
     charCheck(guessedChar) {
-            if (this.guessTorF) {
-                return this.guessTorF;
-            };
+        if (this.guessTorF) {
+            return this.guessTorF;
+        };
+        if (this.guessTorF === false){
             if (guessedChar === this.correctLetter){
                 this.guessTorF = true;
             } else {
                 this.guessTorF = false;
             };  
-
-        console.log("this.guessTorF ", this.guessTorF);
+        };
+      //  console.log("this.guessTorF ", this.guessTorF);
         return this.guessTorF;
     };
 };
 
-const nextLetter = new Letter("a", false);
-nextLetter.printToScreen("c");
-nextLetter.printToScreen("a");
-nextLetter.charCheck("z");
-nextLetter.charCheck("a");
+// const nextLetter = new Letter("a", false);
+// nextLetter.printToScreen("c");
+// nextLetter.printToScreen("a");
+// nextLetter.charCheck("z");
+// nextLetter.charCheck("a");
 
 module.exports = Letter;
 

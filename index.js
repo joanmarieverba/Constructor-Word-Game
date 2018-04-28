@@ -19,6 +19,7 @@ function getRandomInclusive(min, max) {
 index = getRandomInclusive(0, wordList.length - 1);
 let thisWord = wordList[index];
 console.log(thisWord);
+let newWord = new Word(thisWord);
 
 let askQuestion = function () {
 
@@ -30,7 +31,7 @@ let askQuestion = function () {
           message: "Guess a letter!!!"
         }
       ]).then(function (answers) {
-        let newWord = new Word(thisWord);
+
         newWord.outputString(answers.letter);
         if (newWord.processCharacter(answers.letter)) {
           console.log("Correct!");

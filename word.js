@@ -22,7 +22,7 @@ class Word {
         for(let i = 0; i < this.wordObjectArray.length; i++) {
             stringOnScreen = stringOnScreen + this.wordObjectArray[i].printToScreen(guessedLetter) + " ";
         };
-        //console.log("stringOnScreen ", stringOnScreen);
+      //  console.log("stringOnScreen ", stringOnScreen);
         console.log(stringOnScreen);
     };
 
@@ -31,8 +31,8 @@ class Word {
         let guessRight = false;
         for (let i = 0; i < this.wordObjectArray.length; i++) {  
             let charCheckResult = this.wordObjectArray[i].charCheck(char);
-            console.log("check ", charCheckResult);
-            console.log("wordObjectArray ", this.wordObjectArray[i]); 
+            // console.log("check ", charCheckResult);
+            // console.log("wordObjectArray ", this.wordObjectArray[i]); 
             if (charCheckResult) {guessRight = true;};
         };
         return guessRight;
@@ -42,12 +42,14 @@ class Word {
 
 module.exports = Word;
 
-let output = new Word("name");
-output.processCharacter("z");
-output.processCharacter("a");
-output.processCharacter("m");
-output.outputString("m");
-output.outputString("e");
+// let output = new Word("name");
+// output.processCharacter("z");
+// output.processCharacter("a");
+// output.processCharacter("m");
+// output.outputString("m");
+// output.outputString("e");
+
+
 // console.log(output.processCharacter("z"));
 
 // this.firstLetter = new Letter(this.wordArray[0], true);
