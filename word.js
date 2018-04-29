@@ -23,7 +23,8 @@ class Word {
             stringOnScreen = stringOnScreen + this.wordObjectArray[i].printToScreen(guessedLetter) + " ";
         };
       //  console.log("stringOnScreen ", stringOnScreen);
-        console.log(stringOnScreen);
+      //  console.log(stringOnScreen);
+        return stringOnScreen;
     };
 
     //takes a character as an argument and calls the check function on each letter object

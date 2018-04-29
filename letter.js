@@ -8,32 +8,23 @@ class Letter {
     };
     // 
     printToScreen(guessedChar) {
-        let outputChar;
-        if (guessedChar === this.correctLetter) {
+        let outputChar = " ";
+        if (guessedChar.toLowerCase() === this.correctLetter || guessedChar.toUpperCase() === this.correctLetter) {
             outputChar = this.correctLetter;
-        };
-        if (this.guessTorF) {
+        } else if (this.guessTorF) {
             outputChar = this.correctLetter;
-        };
-        if (guessedChar !== this.correctLetter && this.guessTorF === false) {
+        } else if (guessedChar !== this.correctLetter && this.guessTorF === false) {
             outputChar = "_";
         };
-       // console.log("outputChar ", outputChar);
         return outputChar;
     };
     charCheck(guessedChar) {
-        if (this.guessTorF) {
-            return this.guessTorF;
+        let currentGuess = false;
+        if (guessedChar.toLowerCase() === this.correctLetter || guessedChar.toUpperCase() === this.correctLetter){
+                this.guessTorF = true; 
+                currentGuess = true;
         };
-        if (this.guessTorF === false){
-            if (guessedChar === this.correctLetter){
-                this.guessTorF = true;
-            } else {
-                this.guessTorF = false;
-            };  
-        };
-      //  console.log("this.guessTorF ", this.guessTorF);
-        return this.guessTorF;
+        return currentGuess;
     };
 };
 

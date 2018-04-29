@@ -7,7 +7,7 @@ const inquirer = require("inquirer");
 // import Word
 const Word = require("./word.js");
 
-let maxGuesses = 3;
+let maxGuesses = 12;
 let count = 0;
 
 const wordList = ["Minnesota", "Wisconsin", "Nevada", "Montana", "California", "Massachusetts"]
@@ -21,6 +21,17 @@ let thisWord = wordList[index];
 console.log(thisWord);
 let newWord = new Word(thisWord);
 
+let checkForEnd = function(string) {
+  let stringArray = string.split('');
+//  console.log("check for end ", string);
+  for (let i = 0; i < string.length; i++) {
+    if (stringArray[i] === "_") {
+      return false;
+    }
+    return true;
+  };
+};
+
 let askQuestion = function () {
 
   if (count < maxGuesses){
@@ -32,19 +43,34 @@ let askQuestion = function () {
         }
       ]).then(function (answers) {
 
-        newWord.outputString(answers.letter);
+        let screen = newWord.outputString(answers.letter);
+        console.log(screen);
         if (newWord.processCharacter(answers.letter)) {
           console.log("Correct!");
         } else {
           console.log("Incorrect!");
-          console.log(`${maxGuesses - count} guesses remaining.`);
+          console.log(`${maxGuesses - count - 1} guesses remaining.`);
         };
+        
         count++;
+        let success = checkForEnd(newWord.outputString(answers.letter));
+
+        if (success){
+          count = 0;
+          console.log("You got it right! Congratulations!")
+          // index = getRandomInclusive(0, wordList.length - 1);
+          // let thisWord = wordList[index];
+          // console.log(thisWord);
+          // let newWord = new Word(thisWord);
+          // console.log ("newWord ", newWord);
+        };
         askQuestion();
       });
 
   } else {
-    console.log("You've run out of guesses");
+
+      console.log("You've run out of guesses");
+  
   };
 };
 
