@@ -54,15 +54,8 @@ let askQuestion = function () {
         
         count++;
         let success = checkForEnd(screen);
-
         if (success){
-          count = 0;
           console.log("You got it right! Congratulations!")
-          // index = getRandomInclusive(0, wordList.length - 1);
-          // let thisWord = wordList[index];
-          // console.log(thisWord);
-          // let newWord = new Word(thisWord);
-          // console.log ("newWord ", newWord);
         };
         askQuestion();
       });
