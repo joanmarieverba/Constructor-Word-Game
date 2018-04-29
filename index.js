@@ -23,13 +23,13 @@ let newWord = new Word(thisWord);
 
 let checkForEnd = function(string) {
   let stringArray = string.split('');
-//  console.log("check for end ", string);
+  let theEnd = true;
   for (let i = 0; i < string.length; i++) {
     if (stringArray[i] === "_") {
-      return false;
-    }
-    return true;
+      theEnd = false;
+    };
   };
+  return theEnd;
 };
 
 let askQuestion = function () {
@@ -53,7 +53,7 @@ let askQuestion = function () {
         };
         
         count++;
-        let success = checkForEnd(newWord.outputString(answers.letter));
+        let success = checkForEnd(screen);
 
         if (success){
           count = 0;
