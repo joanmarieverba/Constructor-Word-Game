@@ -15,11 +15,12 @@ const wordList = ["Minnesota", "Wisconsin", "Nevada", "Montana", "California", "
 function getRandomInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-// grab a word from the list at random
-index = getRandomInclusive(0, wordList.length - 1);
-let thisWord = wordList[index];
-console.log(thisWord);
-let newWord = new Word(thisWord);
+
+  // grab a word from the list at random
+  index = getRandomInclusive(0, wordList.length - 1);
+  let thisWord = wordList[index];
+  console.log(thisWord);
+  let newWord = new Word(thisWord);
 
 let checkForEnd = function(string) {
   let stringArray = string.split('');
@@ -56,8 +57,11 @@ let askQuestion = function () {
         let success = checkForEnd(screen);
         if (success){
           console.log("You got it right! Congratulations!")
+        
+        } else {
+          askQuestion();
         };
-        askQuestion();
+
       });
 
   } else {
@@ -70,6 +74,3 @@ let askQuestion = function () {
 askQuestion();
 
 
-// let output = new Word("name");
-// output.outputString("z");
-// output.outputString("a");
