@@ -17,7 +17,7 @@ function getRandomInclusive(min, max) {
 }
 
   // grab a word from the list at random
-  index = getRandomInclusive(0, wordList.length - 1);
+  let index = getRandomInclusive(0, wordList.length - 1);
   let thisWord = wordList[index];
   console.log(thisWord);
   let newWord = new Word(thisWord);
