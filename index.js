@@ -16,13 +16,13 @@ function getRandomInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-  // grab a word from the list at random
-  let index = getRandomInclusive(0, wordList.length - 1);
-  let thisWord = wordList[index];
-  console.log(thisWord);
-  let newWord = new Word(thisWord);
+// grab a word from the list at random
+let index = getRandomInclusive(0, wordList.length - 1);
+let thisWord = wordList[index];
+console.log(thisWord);
+let newWord = new Word(thisWord);
 
-let checkForEnd = function(string) {
+let checkForEnd = function (string) {
   let stringArray = string.split('');
   let theEnd = true;
   for (let i = 0; i < string.length; i++) {
@@ -35,42 +35,57 @@ let checkForEnd = function(string) {
 
 let askQuestion = function () {
 
-  if (count < maxGuesses){
+  if (count < maxGuesses) {
 
-      inquirer.prompt([
-        {
-          name: "letter",
-          message: "Guess a letter!!!"
-        }
-      ]).then(function (answers) {
+    inquirer.prompt([
+      {
+        name: "letter",
+        message: "Guess a letter!!!"
+      }
+    ]).then(function (answers) {
 
-        let screen = newWord.outputString(answers.letter);
+      let screen = newWord.outputString(answers.letter);
+      console.log(screen);
+      if (newWord.processCharacter(answers.letter)) {
+        console.log("Correct!");
+      } else {
+        console.log("Incorrect!");
+        console.log(`${maxGuesses - count - 1} guesses remaining.`);
+      };
+
+      count++;
+      let success = checkForEnd(screen);
+      if (success) {
+        console.log("You got it right! Congratulations! Try another word.");
+        count = 0;
+        // grab a word from the list at random
+        index = getRandomInclusive(0, wordList.length - 1);
+        thisWord = wordList[index];
+        newWord = new Word(thisWord);
+        screen = newWord.outputString(" ");
         console.log(screen);
-        if (newWord.processCharacter(answers.letter)) {
-          console.log("Correct!");
-        } else {
-          console.log("Incorrect!");
-          console.log(`${maxGuesses - count - 1} guesses remaining.`);
-        };
-        
-        count++;
-        let success = checkForEnd(screen);
-        if (success){
-          console.log("You got it right! Congratulations!")
-        
-        } else {
-          askQuestion();
-        };
+        askQuestion();
+      } else {
+        askQuestion();
+      };
 
-      });
+    });
 
   } else {
-
-      console.log("You've run out of guesses");
-  
+    console.log("You've run out of guesses. Try another word.");
+    count = 0;
+    // grab a word from the list at random
+    index = getRandomInclusive(0, wordList.length - 1);
+    thisWord = wordList[index];
+    newWord = new Word(thisWord);
+    screen = newWord.outputString(" ");
+    console.log(screen);
+    askQuestion();
   };
+
 };
 
 askQuestion();
+
 
 
