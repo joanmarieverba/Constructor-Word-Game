@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/joanmarieverba/Constructor-Word-Game#readme",
   "dependencies": {
-    "inquirer": "^5.2.0"
+    "inquirer": "^13.2.1"
   }
 }
